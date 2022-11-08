@@ -1,0 +1,32 @@
+To install the nextjs run 'yarn create next-app'
+
+To run the application use 'yarn dev', this is implemented inside the package.json->scripts
+
+Delete '.eslintrc.json' file
+
+Add '.prettierignore' and '.prettierrc' and install pretier with 'yarn add --dev prettier'
+
+
+
+
+
+HARD WAY OF CREATING HEADER
+1)Install 'yarn add moralis-v1 react-moralis' and create the connect button inside the 'ManualHeader' component
+
+2)Wrap the 'Component' tag inside '_app.js' inside 'MoralisProvider'
+
+
+
+
+
+Run 'yarn add web3uikit'
+
+Create 'Header' component using 'ConnectButton' from web3uikit
+
+Create 'constants' folder and create 'abi.json' and 'contractAddresses.json' and put {} in both the files to make them json compatible, we are getting the data in these files when we deploy the raffle contract or run a node inside the raffle contract folder
+
+Create an 'index.js' file inside 'constants' folder and export all the json files from there
+
+Insert the 'NotificationProvider' tag in '_app.js'
+
+we have to run 'mockOffchain.js' in the 'hardhat-raffle' folder to pick a winner and we can use 'yarn hardhat run scripts/mockOffchain.js --network localhost'
