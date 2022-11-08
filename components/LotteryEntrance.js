@@ -20,10 +20,14 @@ function LotteryEntrance() {
     const [numPlayers, setNumPlayers] = useState("0")
     const [recentWinner, setRecentWinner] = useState("0")
     const [interval, setInterval] = useState("0")
-    const [raffleState, setRaffleState] = useState('0')
+    const [raffleState, setRaffleState] = useState("0")
 
     // 'useWeb3Contract' is a hook which returns many useful functions and values
-    const { runContractFunction: enterRaffle } = useWeb3Contract({
+    const {
+        runContractFunction: enterRaffle,
+        isLoading,
+        isFetching,
+    } = useWeb3Contract({
         abi: abi,
         contractAddress: raffleAddress,
         functionName: "enterRaffle",
@@ -77,10 +81,10 @@ function LotteryEntrance() {
         setNumPlayers(numPlayers)
         setRecentWinner(recentWinner)
         setInterval(interval)
-        if (state == '0') {
-            setRaffleState('Online')
+        if (state == "0") {
+            setRaffleState("Online")
         } else {
-            setRaffleState('Offline')
+            setRaffleState("Offline")
         }
     }
 
@@ -153,23 +157,28 @@ function LotteryEntrance() {
                                                 onError: (error) => console.log(error),
                                             })
                                         }}
+                                        disabled={isLoading || isFetching}
                                     >
-                                        Enter Raffle
+                                        {isLoading || isFetching ? (
+                                            <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                                        ) : (
+                                            "Enter Raffle"
+                                        )}
                                     </button>
                                 </center>
                             </div>
                         </div>
                     </div>
 
-                    <div className="xl:flex flex-wrap sm:my-20 2xl:my-0 py-24 justify-evenly bg-slate-700 text-white mt-20 2xl:mt-0">
+                    <div className="xl:flex flex-wrap sm:my-20 2xl:my-0 py-40 justify-evenly bg-lime-300 text-white mt-20 2xl:mt-0">
                         <center>
-                            <p className="p-2 text-xl text-slate-400 mt-3 sm:mt-0 min-w-full">
+                            <p className="p-2 text-xl text-slate-500 mt-3 sm:mt-0 min-w-full font-semibold">
                                 Number of players
                             </p>
                             <p className="text-5xl sm:text-6xl font-bold">{numPlayers}</p>
                         </center>
                         <center className="py-10 xl:py-0">
-                            <p className="p-2 text-xl text-slate-400 mt-3 sm:mt-0">
+                            <p className="p-2 text-xl text-slate-500 mt-3 sm:mt-0 font-semibold">
                                 Recent Winner
                             </p>
                             <p className="text-5xl sm:text-6xl font-bold">
@@ -177,13 +186,15 @@ function LotteryEntrance() {
                             </p>
                         </center>
                         <center className="py-10 xl:py-0">
-                            <p className="p-2 text-xl text-slate-400 mt-3 sm:mt-0 min-w-full">
+                            <p className="p-2 text-xl text-slate-500 mt-3 sm:mt-0 font-semibold">
                                 Draw Interval
                             </p>
                             <p className="text-5xl sm:text-6xl font-bold">{interval}sec</p>
                         </center>
                         <center className="py-10 xl:py-0">
-                            <p className="p-2 text-xl text-slate-400 mt-3 sm:mt-0">Raffle State</p>
+                            <p className="p-2 text-xl text-slate-500 mt-3 sm:mt-0 font-semibold">
+                                Raffle State
+                            </p>
                             <p className="text-5xl sm:text-6xl font-bold">{raffleState}</p>
                         </center>
                     </div>

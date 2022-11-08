@@ -30,3 +30,7 @@ Create an 'index.js' file inside 'constants' folder and export all the json file
 Insert the 'NotificationProvider' tag in '_app.js'
 
 we have to run 'mockOffchain.js' in the 'hardhat-raffle' folder to pick a winner and we can use 'yarn hardhat run scripts/mockOffchain.js --network localhost'
+
+If we are deploying to ipfs, then we have to run 'yarn build' to get the static version of our website, but remember to close the the terminal running 'yarn dev'
+
+We then have to run 'yarn next export' to get the static files in the 'out' folder
