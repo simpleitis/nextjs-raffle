@@ -202,7 +202,7 @@ function LotteryEntrance() {
             ) : (
                 <div>
                     <h2 className="font-extrabold text-2xl text-slate-700">
-                        No Raffle address detected
+                        Please Connect to Goerli Network to proceed
                     </h2>
                 </div>
             )}
@@ -211,26 +211,3 @@ function LotteryEntrance() {
 }
 
 export default LotteryEntrance
-
-{
-    /* <div className="col-span-1">
-                        <center>
-                            <img
-                                src="enter.png"
-                                className="self-center px-2 object-scale-down h-60 w-96  mr-9"
-                                alt="logo"
-                            />
-                            <button
-                                className="border w-max h-max font-extrabold text-2xl  p-3 rounded-full text-green-500"
-                                onClick={async function () {
-                                    await enterRaffle({
-                                        onSuccess: handleSuccess,
-                                        onError: (error) => console.log(error),
-                                    })
-                                }}
-                            >
-                                Enter Raffle
-                            </button>
-                        </center>
-                    </div> */
-}
