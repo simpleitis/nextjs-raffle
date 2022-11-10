@@ -33,6 +33,6 @@ we have to run 'mockOffchain.js' in the 'hardhat-raffle' folder to pick a winner
 
 If we are deploying to ipfs, then we have to run 'yarn build' to get the static version of our website, but remember to close the the terminal running 'yarn dev'
 
-We then have to run 'yarn next export' to get the static files in the 'out' folder
+We then have to run 'yarn next export' to get the static files in the 'out' folder and we can then upload the 'out' folder onto ipfs and install 'ipfs companion' extension to see the static version of the site on 'ipfs://{CID}' 
 
 Add 'images: {unoptimized: true,}' to 'next.config.js' to avoid image optimisation error when trying to generate static sites for fleek
